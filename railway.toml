@@ -1,0 +1,11 @@
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "bot_db/Dockerfile"
+
+[deploy]
+startCommand = "python bot_db/main.py"
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 5
+
+# Примонтируй Volume в Railway вручную:
+# Mount Path: /app/data  (чтобы SQLite не сбрасывался при рестарте)
